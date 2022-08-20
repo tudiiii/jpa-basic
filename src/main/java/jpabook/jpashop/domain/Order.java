@@ -18,6 +18,10 @@ public class Order {
     @JoinColumn(name = "member_id")
     private Member member;
 
+    @OneToOne
+    @JoinColumn(name = "delivery_id")
+    private Delivery delivery;
+
     private LocalDateTime orderDate;
 
     @Enumerated(EnumType.STRING)
@@ -45,6 +49,14 @@ public class Order {
 
     public void setMember(Member member) {
         this.member = member;
+    }
+
+    public Delivery getDelivery() {
+        return delivery;
+    }
+
+    public void setDelivery(Delivery delivery) {
+        this.delivery = delivery;
     }
 
     public LocalDateTime getOrderDate() {
